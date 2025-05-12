@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="المتجر الإلكتروني - تسوق أونلاين">
+  <meta name="author" content="Abdul Mughni">
+  <meta name="keywords" content="طعام,ادوات منزلية,ادوات الكترونية,ملابس,ادوات بناء">
+  <link rel="icon" href="assets/store-logo.png" type="image/png"/>
+  <title>المتجر الإلكتروني</title>
+  
+  <style>
+    /* نمط عام للموقع بالكامل */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4faff;
+      color: #000;
+      padding: 40px;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* نمط الرأس والعناوين */
+    h1, h2, h3 {
+      color: #007acc;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-top: 10px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    /* نمط النصوص والفقرات */
+    p {
+      color: #333;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    /* نمط النماذج */
+    form {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: right;
+    }
+
+    /* نمط حقول الإدخال */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="month"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    /* نمط زر التقديم */
+    input[type="submit"], .button {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+
+    input[type="submit"]:hover, .button:hover {
+      background-color: #005f99;
+    }
+
+    /* نمط الروابط */
+    a {
+      color: #007acc;
+      text-decoration: none;
+      font-size: 1em;
+      margin-top: 15px;
+      display: inline-block;
+    }
+
+    a:hover {
+      color: #005f99;
+    }
+
+    /* نمط القائمة */
+    nav {
+      margin: 20px 0;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 10px 0;
+      color: #007acc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* نمط الصور */
+    .logo {
+      max-width: 200px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    /* نمط الخط الأفقي */
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #ddd;
+      margin: 20px 0;
+    }
+
+    /* نمط أزرار الراديو */
+    input[type="radio"] {
+      margin: 10px;
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    label {
+      margin-right: 10px;
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    /* نمط التحديد في أزرار الراديو */
+    input[type="radio"]:checked + label {
+      font-weight: bold;
+      color: #007acc;
+    }
+
+    /* نمط الحاويات */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* نمط صفحات التطبيق */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* نمط أزرار التنقل */
+    .nav-buttons {
+      margin-top: 20px;
+    }
+
+    .nav-buttons a {
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- صفحة البداية -->
+  <div id="home" class="page active">
+    <div class="container">
+      <h1>المتجر الإلكتروني</h1>
+      <img src="assets/store-logo.png" alt="شعار المتجر" class="logo">
+      <p>يمكنك إنشاء حساب لشراء من جميع منتجات المتجر الإلكتروني وتوصيلها إلى منزلك</p>
+      <a href="#" class="button" onclick="showPage('login')">بدء الاستخدام</a>
+      <p><a href="#" onclick="showPage('login')">البحث عن حسابي</a></p>
+    </div>
+  </div>
+
+  <!-- صفحة تسجيل الدخول -->
+  <div id="login" class="page">
+    <div class="container">
+      <nav>
+        <a href="#">احصل على المتجر الإلكتروني على Android واستمتع بتسوق أسرع</a>
+      </nav>
+
+      <h1>تسجيل الدخول</h1>
+      <hr>
+
+      <form onsubmit="showPage('home'); return false;">
+        <input required id="email" type="email" placeholder="رقم الهاتف المحمول أو البريد الإلكتروني">
+        <input required id="password" type="password" placeholder="كلمة السر">
+        <input type="submit" value="تسجيل الدخول">
+        <a href="#" onclick="showPage('forgotPassword')">هل نسيت كلمة السر؟</a>
+      </form>
+     
+      <nav>
+        <a href="#" onclick="showPage('register')">إنشاء حساب جديد</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- صفحة إنشاء حساب (الاسم) -->
+  <div id="register" class="page">
+    <div class="container">
+      <h2>ما اسمك؟</h2>
+      <form onsubmit="showPage('birthdate'); return false;">
+        <input required type="text" placeholder="الاسم الأول">
+        <input required type="text" placeholder="اسم العائلة">
+        <input type="submit" value="التالي">
+      </form>
+    </div>
+  </div>
+
+  <!-- صفحة تاريخ الميلاد -->
+  <div id="birthdate" class="page">
+    <div class="container">
+      <h2>ما تاريخ ميلادك؟</h2>
+      <form onsubmit="showPage('gender'); return false;">
+        <h3>يرجى اختيار تاريخ ميلادك</h3>
+        <input required id="month" type="month">
+        <input type="submit" value="التالي">
+      </form>
+    </div>
+  </div>
+
+  <!-- صفحة اختيار الجنس -->
+  <div id="gender" class="page">
+    <div class="container">
+      <h2>ما جنسك؟</h2>
+      <form onsubmit="showPage('phone'); return false;">
+        <input type="radio" name="gender" value="ذكر" id="male">
+        <label for="male">ذكر</label><br>
+
+        <input type="radio" name="gender" value="أنثى" id="female">
+        <label for="female">أنثى</label><br>
+
+        <input type="radio" name="gender" value="أخرى" id="other">
+        <label for="other">أخرى</label><br>
+
+        <input type="submit" value="التالي">
+      </form>
+    </div>
+  </div>
+
+  <!-- صفحة رقم الهاتف المحمول -->
+  <div id="phone" class="page">
+    <div class="container">
+      <h2>ما رقم هاتفك المحمول؟</h2>
+      <p>ادخل رقم الهاتف المحمول الذي يمكننا التواصل معك من خلاله</p>
+      <form onsubmit="showPage('email'); return false;">
+        <input type="text" placeholder="أدخل رقم الهاتف" required>
+        <input type="submit" value="التالي">
+      </form>
+      <a href="#" onclick="showPage('email')">تسجيل بالبريد الإلكتروني</a>
+    </div>
+  </div>
+
+  <!-- صفحة البريد الإلكتروني -->
+  <div id="email" class="page">
+    <div class="container">
+      <h2>ما بريدك الإلكتروني؟</h2>
+      <p>ادخل البريد الإلكتروني الذي يمكننا التواصل معك من خلاله</p>
+      
+      <form onsubmit="showPage('success'); return false;">
+        <label for="email-input">البريد الإلكتروني:</label><br>
+        <input required id="email-input" type="email" placeholder="البريد الإلكتروني"><br>
+        <input type="submit" value="التالي">
+      </form>
+
+      <a href="#" onclick="showPage('phone')">تسجيل الدخول باستخدام رقم الهاتف المحمول</a>
+    </div>
+  </div>
+
+  <!-- صفحة نسيان كلمة المرور -->
+  <div id="forgotPassword" class="page">
+    <div class="container">
+      <h2>استعادة كلمة المرور</h2>
+      <p>يرجى إدخال بريدك الإلكتروني أو رقم هاتفك لاستعادة كلمة المرور</p>
+      <form onsubmit="showPage('login'); return false;">
+        <input required type="email" placeholder="البريد الإلكتروني أو رقم الهاتف">
+        <input type="submit" value="إرسال رمز التحقق">
+      </form>
+      <a href="#" onclick="showPage('login')">العودة إلى تسجيل الدخول</a>
+    </div>
+  </div>
+
+  <!-- صفحة النجاح -->
+  <div id="success" class="page">
+    <div class="container">
+      <h2>تم التسجيل بنجاح!</h2>
+      <p>شكراً لك على الانضمام إلى المتجر الإلكتروني</p>
+      <a href="#" class="button" onclick="showPage('login')">تسجيل الدخول</a>
+    </div>
+  </div>
+
+  <!-- البرمجة النصية للتنقل بين الصفحات -->
+  <script>
+    // دالة لإظهار الصفحة المطلوبة وإخفاء الباقي
+    function showPage(pageId) {
+      // إخفاء جميع الصفحات
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => {
+        page.classList.remove('active');
+      });
+      
+      // إظهار الصفحة المطلوبة
+      document.getElementById(pageId).classList.add('active');
+      
+      // التمرير إلى أعلى الصفحة
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
